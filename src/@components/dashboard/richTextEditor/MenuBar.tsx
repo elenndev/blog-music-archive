@@ -11,8 +11,15 @@ type optionType = {
 }
 
 export default function MenuBar({ editor }: { editor: Editor | null }) {
+    const [newImage, setNewImage] = useState("")
+    const [addingImage, setAddingImage] = useState(false)
+
+    const [newLink, setNewLink] = useState("")
+    const [addingNewLink, setAddingNewLink] = useState(false)
+
     //The image extension is only responsible for displaying images. It doesn’t upload images to your server, for that you can integrate the FileHandler extension
     function OpenAddImageTab(){
+        setAddingNewLink(false)
         setNewImage("")
         setAddingImage(true)
     }
@@ -25,8 +32,26 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
         }
     }
 
-    const [newImage, setNewImage] = useState<string>("")
-    const [addingImage, setAddingImage] = useState(false)
+
+    function openLinkTab(){
+        setAddingImage(false)
+        setNewLink("")
+        setAddingNewLink(true)
+    }
+    function saveNewLink(){
+        setAddingNewLink(false)
+        if(editor && newLink!= ""){
+            editor.chain().focus().toggleLink({href: newLink}).run()
+
+        }
+    }
+
+    function cleanTabs(){
+        setAddingImage(false)
+        setAddingNewLink(false)
+        setNewImage("")
+        setNewLink("")
+    }
     
     if (!editor) {
         return null;
@@ -97,15 +122,21 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
             onClick: () => { OpenAddImageTab()},
             pressed: editor.isActive("highlight"),
         },
+        {
+            label: "Link",
+            onClick: () => {openLinkTab()},
+            pressed: editor.isActive("image"),
+        },
     ];
 
     return (<>
         <div className='relative flex flex-col gap-2 items-center w-full'>
             <span className='w-full flex flex-row justify-around py-3'>
                 {Options.map((option, index) => (
-                    <button className='flex flex-row gap-2'
+                    <button className='flex flex-row gap-2 cursor-pointer'
                         key={index}
                         onClick={option.onClick}
+                        onMouseDown={()=> cleanTabs()}
                         style={{
                             marginRight: "4px",
                             backgroundColor: option.pressed ? "#ddd" : "#fff"
@@ -116,10 +147,23 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
                 ))}
             </span>
             {addingImage && (
-                <span className='flex flex-col border bg-[white]'>
+                <span className='flex flex-col bg-[#fff] p-4 px-6 mb-4
+                rounded-md items-center w-fit max-w-[95%] shadow-[0_0_10px_#0000002b]'>
                     <p>{"Enter the image link (url)"}</p>
-                    <input value={newImage} type='text' className='border' onChange={(e) => setNewImage(e.target.value)}/>
-                    <button onClick={()=>saveNewImage()}>Add</button>
+                    <span className='flex flex-row gap-x-2'>
+                        <input value={newImage} type='text' className='bg-[#fff] border border-yellow-300 rounded-md w-fit max-w-[80%]' onChange={(e) => setNewImage(e.target.value)}/>
+                        <button onClick={()=>saveNewImage()} className='bg-blue-600 rounded-lg flex flex-row justify-center px-4 text-white'>Add Image</button>
+                    </span>
+                </span>
+            )}
+            {addingNewLink && (
+                <span className='flex flex-col bg-[#fff] p-4 px-6 mb-4
+                rounded-md items-center w-fit max-w-[95%] shadow-[0_0_10px_#0000002b]'>
+                    <p>Enter the link</p>
+                    <span className='flex flex-row gap-x-2'>
+                        <input value={newImage} type='text' className='bg-[#fff] border border-blue-600 rounded-md w-fit max-w-[80%]' onChange={(e) => setNewLink(e.target.value)}/>
+                        <button onClick={()=>saveNewLink()} className='bg-blue-600 rounded-lg flex flex-row justify-center px-4 text-white'>Add Link</button>
+                    </span>
                 </span>
             )}
         </div>

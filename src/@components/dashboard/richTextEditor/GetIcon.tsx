@@ -2,7 +2,7 @@ import { TypeToolbarOptions } from "@/types";
 import { IconContext } from "react-icons";
 import { RiImageAddFill } from "react-icons/ri";
 import { FaAlignCenter, FaAlignLeft, FaAlignRight, FaBold, FaHighlighter, FaItalic, FaListOl, FaListUl, FaStrikethrough } from "react-icons/fa";
-import { BsTypeH1, BsTypeH2, BsTypeH3 } from "react-icons/bs";
+import { BsLink45Deg, BsTypeH1, BsTypeH2, BsTypeH3 } from "react-icons/bs";
 
 export default function GetIcon({label, iconSize, iconColor} : {label: TypeToolbarOptions, iconSize: string, iconColor?: string}){
     const Icon = () => {
@@ -45,6 +45,9 @@ export default function GetIcon({label, iconSize, iconColor} : {label: TypeToolb
 
             case 'H3':
                 return (<BsTypeH3 />)
+
+            case 'Link':
+                return (<BsLink45Deg />)
         }
     }
 
