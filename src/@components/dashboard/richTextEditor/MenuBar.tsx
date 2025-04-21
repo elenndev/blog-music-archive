@@ -1,6 +1,14 @@
 'use client'
 import { Editor } from "@tiptap/react";
 import { useState } from "react";
+import GetIcon from "./GetIcon";
+import { TypeToolbarOptions } from "@/types";
+
+type optionType = {
+    label: TypeToolbarOptions;
+    onClick: () => void;
+    pressed: boolean
+}
 
 export default function MenuBar({ editor }: { editor: Editor | null }) {
     //The image extension is only responsible for displaying images. It doesn’t upload images to your server, for that you can integrate the FileHandler extension
@@ -23,7 +31,7 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
     if (!editor) {
         return null;
     }
-    const Options = [
+    const Options: optionType[] = [
         {
             label: "H1",
             onClick: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
@@ -92,10 +100,10 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
     ];
 
     return (<>
-        <div className='relative flex justify-center'>
-            <span className='bg-[black]'>
+        <div className='relative flex flex-col gap-2 items-center w-full'>
+            <span className='w-full flex flex-row justify-around py-3'>
                 {Options.map((option, index) => (
-                    <button
+                    <button className='flex flex-row gap-2'
                         key={index}
                         onClick={option.onClick}
                         style={{
@@ -103,7 +111,7 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
                             backgroundColor: option.pressed ? "#ddd" : "#fff"
                         }}
                     >
-                        {option.label}
+                        <GetIcon label={option.label} iconSize={"1.5rem"}/>
                     </button>
                 ))}
             </span>

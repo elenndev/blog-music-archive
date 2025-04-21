@@ -51,7 +51,7 @@ export default function RichTextEditor({
     });
 
     return (
-    <div>
+    <div className='w-[80%] p-4 bg-white shadow-2xl rounded-3xl'>
         <MenuBar editor={editor} />
         <FloatingMenuBar editor={editor}/>
         <PostEditor editor={editor}/>
