@@ -1,10 +1,35 @@
+'use client'
 import { Editor } from "@tiptap/react";
+import { useState } from "react";
 
 export default function MenuBar({ editor }: { editor: Editor | null }) {
+    //The image extension is only responsible for displaying images. It doesn’t upload images to your server, for that you can integrate the FileHandler extension
+    // const addImage = useCallback(() => {
+    //     // const url = window.prompt('URL')
+        
+    //     if (url && editor) {
+    //         editor.chain().focus().setImage({ src: url }).run()
+    //     }
+    //     }, [editor])
+    function OpenAddImageTab(){
+        setNewImage("")
+        setAddingImage(true)
+    }
+
+    function saveNewImage(){
+        setAddingImage(false)
+        const url = newImage
+        if (url != "" && editor){
+            editor.chain().focus().setImage({ src: url }).run()
+        }
+    }
+
+    const [newImage, setNewImage] = useState<string>("")
+    const [addingImage, setAddingImage] = useState(false)
+    
     if (!editor) {
         return null;
     }
-
     const Options = [
         {
             label: "H1",
@@ -66,22 +91,36 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
             onClick: () => editor.chain().focus().toggleHighlight().run(),
             pressed: editor.isActive("highlight"),
         },
+        {
+            label: "Add Image",
+            onClick: () => { OpenAddImageTab()},
+            pressed: editor.isActive("highlight"),
+        },
     ];
 
-    return (
-        <div>
-            {Options.map((option, index) => (
-                <button
-                    key={index}
-                    onClick={option.onClick}
-                    style={{
-                        marginRight: "4px",
-                        backgroundColor: option.pressed ? "#ddd" : "#fff"
-                    }}
-                >
-                    {option.label}
-                </button>
-            ))}
+    return (<>
+        <div className='relative flex justify-center'>
+            <span className='bg-[black]'>
+                {Options.map((option, index) => (
+                    <button
+                        key={index}
+                        onClick={option.onClick}
+                        style={{
+                            marginRight: "4px",
+                            backgroundColor: option.pressed ? "#ddd" : "#fff"
+                        }}
+                    >
+                        {option.label}
+                    </button>
+                ))}
+            </span>
+            {addingImage && (
+                <span className='flex flex-col border bg-[white]'>
+                    <p>{"Enter the image link (url)"}</p>
+                    <input value={newImage} type='text' className='border' onChange={(e) => setNewImage(e.target.value)}/>
+                    <button onClick={()=>saveNewImage()}>Add</button>
+                </span>
+            )}
         </div>
-    );
+    </>);
 }

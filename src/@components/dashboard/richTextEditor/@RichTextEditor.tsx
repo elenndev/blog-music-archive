@@ -3,6 +3,7 @@ import { useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from "@tiptap/extension-text-align"
 import Highlight from "@tiptap/extension-highlight"
+import Image from '@tiptap/extension-image'
 import MenuBar from './MenuBar'
 import { useState } from 'react'
 import PostEditor from './PostEditor'
@@ -33,7 +34,7 @@ export default function RichTextEditor({
           TextAlign.configure({
             types: ["heading", "paragraph"],
           }),
-          Highlight,
+          Highlight, Image
         ],
         content: content,
         immediatelyRender: false,
