@@ -4,13 +4,6 @@ import { useState } from "react";
 
 export default function MenuBar({ editor }: { editor: Editor | null }) {
     //The image extension is only responsible for displaying images. It doesn’t upload images to your server, for that you can integrate the FileHandler extension
-    // const addImage = useCallback(() => {
-    //     // const url = window.prompt('URL')
-        
-    //     if (url && editor) {
-    //         editor.chain().focus().setImage({ src: url }).run()
-    //     }
-    //     }, [editor])
     function OpenAddImageTab(){
         setNewImage("")
         setAddingImage(true)

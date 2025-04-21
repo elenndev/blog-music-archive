@@ -1,5 +1,5 @@
 'use client'
-import { useEditor } from '@tiptap/react'
+import { useEditor} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from "@tiptap/extension-text-align"
 import Highlight from "@tiptap/extension-highlight"
@@ -7,6 +7,8 @@ import Image from '@tiptap/extension-image'
 import MenuBar from './MenuBar'
 import { useState } from 'react'
 import PostEditor from './PostEditor'
+import Foo from './Foo'
+import FloatingMenuBar from './FloatingMenuBar'
 
 interface RichTextEditorProps {
     postContent?: string;
@@ -34,7 +36,7 @@ export default function RichTextEditor({
           TextAlign.configure({
             types: ["heading", "paragraph"],
           }),
-          Highlight, Image
+          Highlight, Image, Foo
         ],
         content: content,
         immediatelyRender: false,
@@ -51,6 +53,7 @@ export default function RichTextEditor({
     return (
     <div>
         <MenuBar editor={editor} />
+        <FloatingMenuBar editor={editor}/>
         <PostEditor editor={editor}/>
     </div>
     );
