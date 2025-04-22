@@ -4,14 +4,13 @@ import Highlight from "@tiptap/extension-highlight"
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
 import Foo from './Foo'
-import { Editor } from "@tiptap/react";
 
 interface configEditorParams {
-  onChange: (contentValue: string)=> void, 
+  // onChange: (contentValue: string)=> void, 
   content: string 
 }
 export default function ConfigEditor(params: configEditorParams){
-  const {content, onChange} = params
+  const {content } = params
     const editor = {
             extensions: [
               StarterKit.configure({
@@ -97,9 +96,6 @@ export default function ConfigEditor(params: configEditorParams){
               attributes: {
                 class: "min-h-[156px] border rounded-md bg-slate-50 py-2 px-3",
               },
-            },
-            onUpdate: ({ editor }: {editor: Editor}) => {
-              onChange(editor.getHTML());
             },
     };
 
