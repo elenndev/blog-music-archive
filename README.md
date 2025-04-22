@@ -40,17 +40,4 @@ npm run dev
 
 Then open [http://localhost:3000/dashboard](http://localhost:3000/dashboard) in your browser.
 
-## 📂 Project Structure
 
-```
-/public
-  └── editor-preview.png  # preview image used in README
-/src
-  └── components
-      └── RichTextEditor.tsx
-```
-
-
-## 📦 Deployment
-
-No deployment configured yet. You can clone the project and run it locally.
