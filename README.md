@@ -22,13 +22,6 @@ This project offers a functional and customizable rich text editor with essentia
 - Add Image
 - Link
 
-## 🛠️ Tech Stack
-
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [TipTap](https://tiptap.dev/)
-
 ## 🚀 Getting Started
 
 To run the project locally:
@@ -39,5 +32,12 @@ npm run dev
 ```
 
 Then open [http://localhost:3000/dashboard](http://localhost:3000/dashboard) in your browser.
+
+## 🛠️ Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TipTap](https://tiptap.dev/)
 
 
