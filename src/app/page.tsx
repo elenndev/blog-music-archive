@@ -2,10 +2,16 @@
 import Link from "next/link";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, GlobalStyles, lightTheme } from "@/styled/themes.";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark")
+  useEffect(()=>{
+          if(!localStorage.getItem("theme")){
+              localStorage.setItem("theme", 'dark')
+              setTheme(localStorage.getItem("theme") ?? "dark")
+          }
+      },[])
   
   return (
       <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
