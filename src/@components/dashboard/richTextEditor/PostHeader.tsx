@@ -46,7 +46,7 @@ export default function PostHeader({postHeader, setPostHeader} : postHeaderProps
                 <label htmlFor='headerAlt'>Adicione uma descrição(alt) para a imagem</label>
                 <input type='text' minLength={5} id='headerAlt' name='headerAlt' value={headerAlt} className='border'
                 onChange={(e)=> setHeaderAlt(e.target.value)}></input>
-                <button onClick={()=>handleSetHeader()}>Definir capa</button>
+                <button onClick={()=>handleSetHeader()} type='button'>Definir capa</button>
             </fieldset>
 
             <span className='w-[90%] flex flex-col gap-4 items-center bg-[#ddd] border min-h-[300px]'>

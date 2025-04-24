@@ -44,8 +44,8 @@ export default function RichTextEditor({
 
     return (
     <div className='w-[80%] p-4 bg-white shadow-2xl rounded-3xl'>
-        <form onSubmit={handleSubmit}>
         <MenuBar editor={editor} />
+        <form onSubmit={handleSubmit}>
         <FloatingMenuBar editor={editor}/>
         <PostEditor editor={editor}/>
         <PostHeader setPostHeader={setPostHeader} postHeader={postHeader}/>

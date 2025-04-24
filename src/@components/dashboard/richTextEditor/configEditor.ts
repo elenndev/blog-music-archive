@@ -2,11 +2,11 @@ import StarterKit from '@tiptap/starter-kit'
 import TextAlign from "@tiptap/extension-text-align"
 import Highlight from "@tiptap/extension-highlight"
 import Link from '@tiptap/extension-link'
-import Image from '@tiptap/extension-image'
+// import Image from '@tiptap/extension-image'
+import ImageResize from 'tiptap-extension-resize-image';
 import Foo from './Foo'
 
 interface configEditorParams {
-  // onChange: (contentValue: string)=> void, 
   content: string 
 }
 export default function ConfigEditor(params: configEditorParams){
@@ -28,7 +28,7 @@ export default function ConfigEditor(params: configEditorParams){
               TextAlign.configure({
                 types: ["heading", "paragraph"],
               }),
-              Highlight, Image, Foo, 
+              Highlight, ImageResize, Foo, 
               Link.configure({
                 openOnClick: false,
                 autolink: true,
