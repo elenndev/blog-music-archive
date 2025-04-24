@@ -5,15 +5,21 @@ import PostEditor from './PostEditor'
 import FloatingMenuBar from './FloatingMenuBar'
 import ConfigEditor from './configEditor'
 import { toast } from 'react-toastify'
+import PostHeader from './PostHeader'
+import { TypePost } from '@/types'
+import { useState } from 'react'
 
 interface RichTextEditorProps {
-    postContent?: string;
+    post?: TypePost;
 }
 export default function RichTextEditor({
-    postContent,
+    post,
 }: RichTextEditorProps) {
-    const configs = ConfigEditor({content: postContent ?? "<p>Write something!</p>"})
+    const configs = ConfigEditor({content: post?.content ?? "<p>Write something!</p>"})
     const editor = useEditor(configs);
+    const [postHeader, setPostHeader] = useState
+        <{cover: null | string; cover_description: null | string}>
+        ({cover: null, cover_description: null})
 
     function handleSubmit(e: React.FormEvent){
         e.preventDefault()
@@ -42,6 +48,7 @@ export default function RichTextEditor({
         <MenuBar editor={editor} />
         <FloatingMenuBar editor={editor}/>
         <PostEditor editor={editor}/>
+        <PostHeader setPostHeader={setPostHeader} postHeader={postHeader}/>
         <span className='flex justify-center'>
             <button type='submit' className='bg-blue-600 hover:bg-blue-800 rounded-lg cursor-pointer flex flex-row justify-center px-4 text-white text-[1.5rem] mt-5'>Salvar Publicação</button>
         </span>
