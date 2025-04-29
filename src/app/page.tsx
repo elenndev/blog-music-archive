@@ -1,17 +1,19 @@
 'use client'
 import Link from "next/link";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, GlobalStyles, lightTheme } from "@/styled/themes.";
+import { darkTheme, GlobalStyles, lightTheme } from "@/styled/themes";
 import { useEffect, useState } from "react";
 
 export default function Page() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark")
-  useEffect(()=>{
-          if(!localStorage.getItem("theme")){
-              localStorage.setItem("theme", 'dark')
-              setTheme(localStorage.getItem("theme") ?? "dark")
-          }
-      },[])
+  const [theme, setTheme] = useState('dark')
+    useEffect(()=>{
+        const getTheme = localStorage.getItem("theme")
+        if(getTheme){
+            setTheme(getTheme)
+        }else{
+            localStorage.setItem("theme", 'dark')
+        }
+    },[])
   
   return (
       <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>

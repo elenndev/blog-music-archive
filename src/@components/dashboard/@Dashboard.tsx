@@ -12,11 +12,14 @@ import AlbumSpotlight from "./AlbumSpotlight/@AlbumSpotlight";
 export default function Dashboard(){
     const [theme, setTheme] = useState('dark')
     useEffect(()=>{
-        if(!localStorage.getItem("theme")){
+        const getTheme = localStorage.getItem("theme")
+        if(getTheme){
+            setTheme(getTheme)
+        }else{
             localStorage.setItem("theme", 'dark')
-            setTheme(localStorage.getItem("theme") ?? "dark")
         }
     },[])
+
     return(
         <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
             <GlobalStyles />
