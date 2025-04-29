@@ -1,11 +1,12 @@
 'use client'
 import { useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components";
-import { darkTheme, GlobalStyles, lightTheme } from "@/styled/themes.";
+import { darkTheme, GlobalStyles, lightTheme } from "@/styled/themes";
 import { ToastContainer } from "react-toastify"
 import RichTextEditor from "./richTextEditor/@RichTextEditor"
 import ToggleThemeButton from "../ToggletThemeButton";
 import Link from "next/link";
+import AlbumSpotlight from "./AlbumSpotlight/@AlbumSpotlight";
 
 
 export default function Dashboard(){
@@ -20,6 +21,7 @@ export default function Dashboard(){
         <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
             <GlobalStyles />
             <div className='min-w-full min-h-full py-5 flex flex-col items-center justify-center relative'>
+                <ToastContainer/>
                 <span className='w-full'>
                     <ToggleThemeButton changeTheme={setTheme} theme={theme}/>
                     <Link href='/'>Ir pro homepage</Link>
@@ -28,6 +30,7 @@ export default function Dashboard(){
                 <h1>Just write</h1>
                 <h2></h2>
                 <RichTextEditor/>
+                <AlbumSpotlight/>
             </div>
         </ThemeProvider>
     )
