@@ -5,14 +5,14 @@ import { getSpotifyToken } from "@/utils/spotifyAuth"
 
 export async function GET(request: NextRequest){
     const { searchParams } = new URL(request.url)
-    const whichInfo = searchParams.get("whichInfo")
+    const info_name = searchParams.get("info_name")
     
     try{
         let quickInfo
-        if (whichInfo == 'all'){
+        if (info_name == 'all'){
             quickInfo = await BlogQuickInfoDB.find()
         }else{
-            quickInfo = await BlogQuickInfoDB.findOne({info_name: whichInfo})
+            quickInfo = await BlogQuickInfoDB.findOne({info_name})
         }
 
         if(quickInfo == null || quickInfo.lenght == 0){
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest){
             throw new Error("Erro na chamada ao db")
         }
 
-        if(quickInfo && whichInfo == 'album'){
+        if(quickInfo && info_name == 'spotlightAlbum'){
             const albumId = quickInfo.info_value
             const token = await getSpotifyToken().catch(error=>{
                 const errorMessage = error instanceof Error ? error.message : "Error when trying to get the spotify token"
