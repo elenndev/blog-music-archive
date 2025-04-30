@@ -7,7 +7,7 @@ import { toast } from "react-toastify"
 
 
 export default function SetPlaylistSpotlight({playlistUrl} : {playlistUrl?: string}){
-    const [playlist, setPlaylist] = useState(playlistUrl ?? null)
+    const [playlist, setPlaylist] = useState(playlistUrl)
     const [inputPlaylist, setInputPlaylist] = useState("")
     const [loadingPlaylist, setLoadingPlaylist] = useState(false)
     const { updateBlogQuickInfo } = useDashboard()

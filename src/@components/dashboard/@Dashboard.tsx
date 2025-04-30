@@ -8,10 +8,16 @@ import ToggleThemeButton from "../ToggletThemeButton";
 import Link from "next/link";
 import AlbumSpotlight from "./AlbumSpotlight/@AlbumSpotlight";
 import SetPlaylistSpotlight from "./SetPlaylistSpotlight";
+import { TypeAlbum } from "@/types";
 
+interface dashboardProps{
+    playlist?: string;
+    album?: TypeAlbum;
 
-export default function Dashboard(){
+}
+export default function Dashboard({playlist, album} : dashboardProps){
     const [theme, setTheme] = useState('dark')
+
     useEffect(()=>{
         const getTheme = localStorage.getItem("theme")
         if(getTheme){
@@ -33,8 +39,8 @@ export default function Dashboard(){
                 <h1>Just write</h1>
                 <h2></h2>
                 <RichTextEditor/>
-                <AlbumSpotlight/>
-                <SetPlaylistSpotlight/>
+                <AlbumSpotlight storedAlbum={album}/>
+                <SetPlaylistSpotlight playlistUrl={playlist}/>
             </div>
         </ThemeProvider>
     )
