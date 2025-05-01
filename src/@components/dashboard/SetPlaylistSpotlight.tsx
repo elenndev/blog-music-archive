@@ -34,22 +34,24 @@ export default function SetPlaylistSpotlight({playlistUrl} : {playlistUrl?: stri
 
     return (
         <div className="featured-playlist">
-            <p className="container-header">Definir playlist em destaque</p>
-            <form onSubmit={handleSubmitPLaylist}>
-                <label>Informe o link da sua playlist:</label>
-                <input type="url" name="playlist-link" className="playlist-link" placeholder="Link da playlist"
-                value={inputPlaylist} onChange={(e)=> setInputPlaylist(e.target.value)}/>
-                <button type="submit" className="btn btn-primary"
-                disabled={loadingPlaylist}>Enviar</button>
-            </form>
-            <span className="see-playlist">
-                <p>Playlist em destaque atual</p>
-                {loadingPlaylist ? (<p>Carregando playlist, aguarde</p>) : (<>
-                    {playlist?
-                        <IframePlaylist playlist={playlist}/>
-                    : <p>Nenhuma playlist no momento</p>}
-                </>)}
-            </span>
+            {loadingPlaylist ? (<p>Salvando playlist, aguarde</p>) : 
+            (<>
+                <p className="container-header">Definir playlist em destaque</p>
+                <form onSubmit={handleSubmitPLaylist}>
+                    <label>Informe o link da sua playlist:</label>
+                    <input type="url" name="playlist-link" className="playlist-link" placeholder="Link da playlist"
+                    value={inputPlaylist} onChange={(e)=> setInputPlaylist(e.target.value)}/>
+                    <button type="submit" className="btn btn-primary"
+                    disabled={loadingPlaylist}>Enviar</button>
+                </form>
+                <span className="see-playlist">
+                    <p>Playlist em destaque atual</p>
+                        {playlist?
+                            <IframePlaylist playlist={playlist}/>
+                        : <p>Nenhuma playlist no momento</p>}
+                </span>
+            </>)
+            }
         </div>
     )
 }

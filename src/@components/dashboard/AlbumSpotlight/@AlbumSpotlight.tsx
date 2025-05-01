@@ -16,7 +16,7 @@ export default function AlbumSpotlight({storedAlbum}: albumSpotlighProps){
 
     async function changeSpotlightAlbum(newAlbum: TypeAlbum){
         setLoadingAlbum(true)
-        const updatedInfo = await updateBlogQuickInfo('spotlightAlbum', newAlbum.uri)
+        const updatedInfo = await updateBlogQuickInfo('spotlightAlbum', newAlbum.id)
         if(updatedInfo.status == 200){
             setAlbum(newAlbum)
         } else {
