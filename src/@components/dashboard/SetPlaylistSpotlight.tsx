@@ -18,17 +18,16 @@ export default function SetPlaylistSpotlight({playlistUrl} : {playlistUrl?: stri
             const embedPlaylistLink = generatePlaylistEmbedLink(inputPlaylist) as string
             setLoadingPlaylist(true)
             
-            const updatedInfo = await updateBlogQuickInfo(embedPlaylistLink)
+            const updatedInfo = await updateBlogQuickInfo('spotlightPlaylist', embedPlaylistLink)
             if(updatedInfo.status == 200){
                 setPlaylist(embedPlaylistLink)
                 toast.info("Playlist atualizada")
-                setLoadingPlaylist(false)
                 setInputPlaylist("")
             } else {
                 setInputPlaylist("")
                 toast.error(`${updatedInfo.errorMessage ?? "Erro ao tentar atualizar playlist"}`)
-                setLoadingPlaylist(false)
             }
+            setLoadingPlaylist(false)
         }
 
     }

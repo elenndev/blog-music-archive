@@ -18,7 +18,6 @@ export default async function Page(){
             const req = await axios.get(`${url}/api/blog-content/quick-info`,{
                 params: {info_name: 'all'}    
             })
-            console.log('data', req.data.quickInfo)
             if(req.data.quickInfo){
                 return req.data.quickInfo as TypeBlogQuickInfo[]
             } else {

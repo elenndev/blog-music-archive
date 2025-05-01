@@ -1,11 +1,10 @@
 import axios from "axios"
 
 export function useDashboard(){
-    async function updateBlogQuickInfo(playlistLink: string){
+    async function updateBlogQuickInfo(info_name: string,info_value: string){
         try{
             const req = await axios.post('/api/blog-content/quick-info/update',{
-                info_name: 'spotlightPlaylist',
-                info_value: playlistLink})
+                info_name, info_value })
             if(req.data.updateResponse == 200){
                 return {status: 200}
             } else {
