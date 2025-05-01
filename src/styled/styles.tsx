@@ -1,9 +1,9 @@
-import styled from 'styled-components';export 
+import styled from 'styled-components';
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
     padding: 0;
     border: solid 1px var(--SecondaryColor);
-    border-radius: var(--borderRadius);
+    border-radius: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,3 +28,15 @@ const StyledContainer = styled.div`
     }
     }
 `;
+
+export const StyledButton = styled.button`
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+    border-radius: 4rem;
+`
+
+export const StyledButtonSecondary = styled(StyledButton)`
+    background: var(--SecondaryColorDecorate);
+    color: var(--SecondaryColor)
+`

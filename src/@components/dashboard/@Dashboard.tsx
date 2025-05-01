@@ -36,8 +36,6 @@ export default function Dashboard({playlist, album} : dashboardProps){
                     <ToggleThemeButton changeTheme={setTheme} theme={theme}/>
                     <Link href='/'>Ir pro homepage</Link>
                 </span> 
-                <h1>Just write</h1>
-                <h2></h2>
                 <RichTextEditor/>
                 <AlbumSpotlight storedAlbum={album}/>
                 <SetPlaylistSpotlight playlistUrl={playlist}/>

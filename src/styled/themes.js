@@ -9,7 +9,9 @@ export const lightTheme = {
   DecorateColor: '#1E1E1E',
   SecondaryColor: 'black',
   SecondaryColorDecorate: '#67676b',
-  LinkOnPostContent: 'rgb(37, 37, 128)'
+  LinkOnPostContent: 'rgb(37, 37, 128)',
+  HighlightColor: '#1f1f1f'
+
 }
 
 export const darkTheme = {
@@ -21,13 +23,14 @@ export const darkTheme = {
   DecorateColor:'#D5D5D6',
   SecondaryColor: 'white',
   SecondaryColorDecorate: '#4f4f52',
-  LinkOnPostContent: 'rgb(104, 104, 241)'
+  LinkOnPostContent: 'rgb(104, 104, 241)',
+  HighlightColor: '#1f1f1f'
 }
 
 export const GlobalStyles = createGlobalStyle`
   body {
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.MainColor};
+    color: ${({ theme }) => theme.SecondaryColor};
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     transition: all 0.50s linear;
     --toggleBorder: ${({ theme }) => theme.toggleBorder};
@@ -37,5 +40,6 @@ export const GlobalStyles = createGlobalStyle`
     --SecondaryColor: ${({ theme }) => theme.SecondaryColor};
     --SecondaryColorDecorate: ${({ theme }) => theme.SecondaryColorDecorate};
     --LinkOnPostContent: ${({ theme }) => theme.LinkOnPostContent};
+    --HighlightColor: ${({ theme }) => theme.HighlightColor};
   }
 `

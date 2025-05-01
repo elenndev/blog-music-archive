@@ -165,15 +165,18 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
     ];
 
     return (<>
-        <div className='relative flex flex-col gap-2 items-center w-full'>
+        <div className='menubar 
+        relative flex flex-col gap-2 items-center w-full
+        bg-[--HighlightColor]'>
             <span className='w-full flex flex-wrap justify-center py-3'>
                 {Options.map((option, index) => (
-                    <button className='flex flex-row gap-2 cursor-pointer p-2 rounded-md'
+                    <button className='flex flex-row gap-2 cursor-pointer p-2 
+                    rounded-md shadow-2xs text-[--SecondaryColor]'
                         key={index}
                         onClick={option.onClick}
                         style={{
                             marginRight: "4px",
-                            backgroundColor: option.pressed ? "#ddd" : "#fff"
+                            backgroundColor: option.pressed ? "--HighlightColor" : "--SecondaryColor"
                         }}
                     >
                         <GetIcon label={option.label} iconSize={"1.5rem"}/>

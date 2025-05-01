@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 import PostHeader from './PostHeader'
 import { TypePost } from '@/types'
 import { useState } from 'react'
+import * as S from '@/styled/styles'
 
 interface RichTextEditorProps {
     post?: TypePost;
@@ -43,7 +44,7 @@ export default function RichTextEditor({
     }
 
     return (
-    <div className='w-[80%] p-4 bg-white shadow-2xl rounded-3xl'>
+    <S.StyledContainer className='w-[80%] p-4'>
         <MenuBar editor={editor} />
         <form onSubmit={handleSubmit}>
         <FloatingMenuBar editor={editor}/>
@@ -53,6 +54,6 @@ export default function RichTextEditor({
             <button type='submit' className='bg-blue-600 hover:bg-blue-800 rounded-lg cursor-pointer flex flex-row justify-center px-4 text-white text-[1.5rem] mt-5'>Salvar Publicação</button>
         </span>
         </form>
-    </div>
+    </S.StyledContainer>
     );
 }

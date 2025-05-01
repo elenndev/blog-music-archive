@@ -4,7 +4,7 @@ import { RiImageAddFill } from "react-icons/ri";
 import { FaAlignCenter, FaAlignLeft, FaAlignRight, FaBold, FaHighlighter, FaItalic, FaListOl, FaListUl, FaStrikethrough } from "react-icons/fa";
 import { BsLink45Deg, BsTypeH1, BsTypeH2, BsTypeH3 } from "react-icons/bs";
 
-export default function GetIcon({label, iconSize, iconColor} : {label: TypeToolbarOptions, iconSize: string, iconColor?: string}){
+export default function GetIcon({label, iconSize} : {label: TypeToolbarOptions, iconSize: string}){
     const Icon = () => {
         switch(label){
             case 'Add Image':
@@ -51,7 +51,7 @@ export default function GetIcon({label, iconSize, iconColor} : {label: TypeToolb
         }
     }
 
-    return <IconContext.Provider value={{size: iconSize, color: iconColor}}>
+    return <IconContext.Provider value={{size: iconSize, color: '--SecondaryColor'}}>
         <Icon/>
     </IconContext.Provider>
 }
