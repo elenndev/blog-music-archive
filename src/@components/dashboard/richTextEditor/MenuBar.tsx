@@ -176,7 +176,6 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
                         onClick={option.onClick}
                         style={{
                             marginRight: "4px",
-                            // backgroundColor: option.pressed ? "--SecondaryDecoratorColor" : "--SecondaryColor"
                         }}
                     >
                         <GetIcon label={option.label} iconSize={"1.5rem"}/>
