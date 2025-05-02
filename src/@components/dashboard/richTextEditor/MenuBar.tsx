@@ -170,13 +170,13 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
         bg-[--HighlightColor]'>
             <span className='w-full flex flex-wrap justify-center py-3'>
                 {Options.map((option, index) => (
-                    <button className='flex flex-row gap-2 cursor-pointer p-2 
-                    rounded-md shadow-2xs text-[--SecondaryColor]'
+                    <button className={`flex flex-row gap-2 cursor-pointer p-2 
+                    rounded-md shadow-2xs text-[--SecondaryColor] ${option.pressed && "bg-[var(--HighlightColor)]"}`}
                         key={index}
                         onClick={option.onClick}
                         style={{
                             marginRight: "4px",
-                            backgroundColor: option.pressed ? "--HighlightColor" : "--SecondaryColor"
+                            // backgroundColor: option.pressed ? "--SecondaryDecoratorColor" : "--SecondaryColor"
                         }}
                     >
                         <GetIcon label={option.label} iconSize={"1.5rem"}/>
