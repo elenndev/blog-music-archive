@@ -4,6 +4,7 @@ import IframePlaylist from "../IframePlaylist"
 import {generatePlaylistEmbedLink} from '@/utils/generatePlaylistEmbedLink'
 import { useDashboard } from "@/hooks/useDashboard"
 import { toast } from "react-toastify"
+import { StyledButtonSecondary } from "@/styled/styles"
 
 
 export default function SetPlaylistSpotlight({playlistUrl} : {playlistUrl?: string}){
@@ -33,22 +34,26 @@ export default function SetPlaylistSpotlight({playlistUrl} : {playlistUrl?: stri
     }
 
     return (
-        <div className="featured-playlist">
+        <div className="featured-playlist flex flex-col gap-2">
             {loadingPlaylist ? (<p>Salvando playlist, aguarde</p>) : 
             (<>
-                <p className="container-header">Definir playlist em destaque</p>
-                <form onSubmit={handleSubmitPLaylist}>
+                <h2 className="container-header">Definir playlist em destaque</h2>
+                <form onSubmit={handleSubmitPLaylist}
+                className='flex flex-col gap-2'>
                     <label>Informe o link da sua playlist:</label>
-                    <input type="url" name="playlist-link" className="playlist-link" placeholder="Link da playlist"
+                    <input type="url" 
+                    name="playlist-link" 
+                    className="playlist-link border border-[var(--SecondaryColor)] px-5 rounded-2xl" 
+                    placeholder="Link da playlist"
                     value={inputPlaylist} onChange={(e)=> setInputPlaylist(e.target.value)}/>
-                    <button type="submit" className="btn btn-primary"
-                    disabled={loadingPlaylist}>Enviar</button>
+                    <StyledButtonSecondary type="submit" className={`w-fit ${loadingPlaylist && 'opacity-30'}`}
+                    disabled={loadingPlaylist}>Enviar</StyledButtonSecondary>
                 </form>
                 <span className="see-playlist">
-                    <p>Playlist em destaque atual</p>
+                    <h3 className='text-center'>Playlist em destaque atual</h3>
                         {playlist?
                             <IframePlaylist playlist={playlist}/>
-                        : <p>Nenhuma playlist no momento</p>}
+                        : <p className='text-center'>Nenhuma playlist no momento</p>}
                 </span>
             </>)
             }

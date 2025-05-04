@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import PostHeader from './PostHeader'
 import { TypePost } from '@/types'
 import { useState } from 'react'
-import * as S from '@/styled/styles'
+import * as S from '@/styled/styledDashboard'
 
 interface RichTextEditorProps {
     post?: TypePost;
@@ -44,16 +44,19 @@ export default function RichTextEditor({
     }
 
     return (
-    <S.StyledContainer className='w-[80%] p-4'>
+    <S.StyledTextEditor>
         <MenuBar editor={editor} />
-        <form onSubmit={handleSubmit}>
-        <FloatingMenuBar editor={editor}/>
-        <PostEditor editor={editor}/>
-        <PostHeader setPostHeader={setPostHeader} postHeader={postHeader}/>
-        <span className='flex justify-center'>
-            <button type='submit' className='bg-blue-600 hover:bg-blue-800 rounded-lg cursor-pointer flex flex-row justify-center px-4 text-white text-[1.5rem] mt-5'>Salvar Publicação</button>
-        </span>
+        <form onSubmit={handleSubmit} className=' flex w-full flex-col items-center px-3 gap-5'>
+            <FloatingMenuBar editor={editor}/>
+            <PostEditor editor={editor}/>
+            <PostHeader setPostHeader={setPostHeader} postHeader={postHeader}/>
+            <span className='flex justify-center'>
+                <S.StyledButtonPrimary type='submit' 
+                className='text-[1.5rem] mt-5'>
+                    Salvar Publicação
+                </S.StyledButtonPrimary>
+            </span>
         </form>
-    </S.StyledContainer>
+    </S.StyledTextEditor>
     );
 }

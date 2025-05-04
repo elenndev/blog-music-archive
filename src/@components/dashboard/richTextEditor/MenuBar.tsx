@@ -183,12 +183,19 @@ export default function MenuBar({ editor }: { editor: Editor | null }) {
                 ))}
             </span>
             {addingImage && (
-                <span className='flex flex-col bg-[#fff] p-4 px-6 mb-4
-                rounded-md items-center w-fit max-w-[95%] shadow-[0_0_10px_#5854542b]'>
+                <span className='flex flex-col p-4 px-6 mb-4
+                rounded-md items-center w-fit max-w-[95%] shadow-[0_0_10px_#5854542b]
+                bg-[var(--HighlightColor)]'>
                     <p>{"Enter the image link (url)"}</p>
                     <span className='flex flex-row gap-x-2'>
-                        <input value={newImage} type='text' className='bg-[#fff] border border-yellow-300 rounded-md w-fit max-w-[80%]' onChange={(e) => setNewImage(e.target.value)}/>
-                        <button onClick={()=>saveNewImage()} className='bg-blue-600 rounded-lg flex flex-row justify-center px-4 text-white'>Add Image</button>
+                        <input value={newImage} 
+                        type='text' 
+                        className='border border-[var(--DecorateColor)] rounded-md w-fit max-w-[80%]' 
+                        onChange={(e) => setNewImage(e.target.value)}/>
+                        <button onClick={()=>saveNewImage()} 
+                        className='bg-blue-600 rounded-lg flex flex-row justify-center px-4 text-white'>
+                            Add Image
+                        </button>
                     </span>
                 </span>
             )}

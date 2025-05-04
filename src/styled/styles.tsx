@@ -34,8 +34,14 @@ export const StyledButton = styled.button`
     flex-direction: row;
     padding: 5px 10px;
     border-radius: 4rem;
+    width: fit-content;
+    cursor: pointer;
 `
 
+export const StyledButtonPrimary = styled(StyledButton)`
+    background: var(--SecondaryColor);
+    color: var(--MainColor)
+`
 export const StyledButtonSecondary = styled(StyledButton)`
     background: var(--SecondaryColorDecorate);
     color: var(--SecondaryColor)

@@ -11,37 +11,37 @@ export default function FloatingMenuBar({ editor }: { editor: Editor | null }) {
                     onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
                     className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
                     >
-                        <GetIcon iconSize="1rem" label="H1" iconColor="#ddd"/>
+                        <GetIcon iconSize="1rem" label="H1"/>
                     </button>
                     <button
                     onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
                     className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
                     >
-                        <GetIcon iconSize="1rem" label="H2" iconColor="#ddd"/>
+                        <GetIcon iconSize="1rem" label="H2"/>
                     </button>
                     <button
                     onClick={() => editor.chain().focus().toggleBulletList().run()}
                     className={editor.isActive('bulletList') ? 'is-active' : ''}
                     >
-                        <GetIcon iconSize="1rem" label="Bullet List" iconColor="#ddd"/>
+                        <GetIcon iconSize="1rem" label="Bullet List"/>
                     </button>
                     <button
                     onClick={() => editor.chain().focus().toggleBold().run()}
                     className={editor.isActive('bold') ? 'is-active' : ''}
                     >
-                        <GetIcon iconSize="1rem" label="Bold" iconColor="#ddd"/>
+                        <GetIcon iconSize="1rem" label="Bold"/>
                     </button>
                     <button
                     onClick={() => editor.chain().focus().toggleItalic().run()}
                     className={editor.isActive('italic') ? 'is-active' : ''}
                     >
-                        <GetIcon iconSize="1rem" label="Italic" iconColor="#ddd"/>
+                        <GetIcon iconSize="1rem" label="Italic"/>
                     </button>
                     <button
                     onClick={() => editor.chain().focus().toggleStrike().run()}
                     className={editor.isActive('strike') ? 'is-active' : ''}
                     >
-                        <GetIcon iconSize="1rem" label="Strike" iconColor="#ddd"/>
+                        <GetIcon iconSize="1rem" label="Strike"/>
                     </button>
                 </div>
             </FloatingMenu>

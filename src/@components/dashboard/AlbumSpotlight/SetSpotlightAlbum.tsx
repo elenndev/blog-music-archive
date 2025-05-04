@@ -64,21 +64,22 @@ export default function SetSpotlightAlbum({changeSpotlightAlbum} : setAlbumProps
     }, [query, token]); 
 
     return (
-        <div className='featured-album'  style={{ display: 'flex', justifyContent: 'space-around', marginTop: '20px' }}>
-            <p className="container-header">Definir o albúm da semana</p>
-            <span>
+        <div className='featured-album flex flex-col items-center gap-4 px-2 '>
+            <h2 className="container-header text-center md">Definir o albúm da semana</h2>
+            <span className='flex flex-col md:flex-row gap-2'>
                 <div style={{ width: '30%' }}>
-                    <h2>Pesquisar álbum</h2>
+                    <h3>Pesquisar álbum</h3>
                     <input
                         type="text"
                         value={query}
                         onChange={e => setQuery(e.target.value)}
                         placeholder="Digite o nome do álbum"
+                        className='border border-[var(--SecondaryColor)] px-5 rounded-2xl'
                     />
                 </div>
-                <div style={{ width: '30%' }} className="search-results max-h-[400px]">
-                    <h2>Resultados</h2>
-                    <ul className='max-h-[300px] overflow-y-scroll'>
+                <div className="search-results min-w-[30%]">
+                    <h3>Resultados</h3>
+                    <ul className='h-[15em] overflow-y-scroll'>
                         {albums.map(album => (
                             <li
                                 key={album.id}
@@ -106,7 +107,7 @@ export default function SetSpotlightAlbum({changeSpotlightAlbum} : setAlbumProps
                             <button type='button' className='btn btn-primary handle_setFeaturedAlbum' onClick={() => changeSpotlightAlbum(selectedAlbum)}>Definir album</button>
                         </>
                     ) : (
-                        <p>Selecione um álbum para ver os detalhes</p>
+                        <p className='text-center mt-[2rem]'>Selecione um álbum para ver os detalhes</p>
                     )}
                 </div>
             </span>

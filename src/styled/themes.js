@@ -10,7 +10,7 @@ export const lightTheme = {
   SecondaryColor: 'black',
   SecondaryColorDecorate: '#67676b',
   LinkOnPostContent: 'rgb(37, 37, 128)',
-  HighlightColor: '#1f1f1f'
+  HighlightColor: '#e7e7e9'
 
 }
 

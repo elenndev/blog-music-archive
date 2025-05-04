@@ -6,5 +6,5 @@ export default function PostEditor({ editor }: { editor: Editor | null }){
     if(!editor){
         return <p>Loading...</p>
     }
-    return <EditorContent editor={editor} className='posteditor-text-area'/>
+    return <EditorContent editor={editor} style={{width: '100%'}}/>
 }

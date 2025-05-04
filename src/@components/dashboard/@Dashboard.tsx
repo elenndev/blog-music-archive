@@ -9,6 +9,7 @@ import Link from "next/link";
 import AlbumSpotlight from "./AlbumSpotlight/@AlbumSpotlight";
 import SetPlaylistSpotlight from "./SetPlaylistSpotlight";
 import { TypeAlbum } from "@/types";
+import {StyledSetQuickInfos} from "@/styled/styledDashboard"
 
 interface dashboardProps{
     playlist?: string;
@@ -30,15 +31,17 @@ export default function Dashboard({playlist, album} : dashboardProps){
     return(
         <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
             <GlobalStyles />
-            <div className='min-w-full min-h-full py-5 flex flex-col items-center justify-center relative'>
+            <div className='min-w-full min-h-full py-5 gap-4 flex flex-col items-center justify-center relative'>
                 <ToastContainer theme={theme}/>
                 <span className='w-full'>
                     <ToggleThemeButton changeTheme={setTheme} theme={theme}/>
                     <Link href='/'>Ir pro homepage</Link>
                 </span> 
                 <RichTextEditor/>
-                <AlbumSpotlight storedAlbum={album}/>
-                <SetPlaylistSpotlight playlistUrl={playlist}/>
+                <StyledSetQuickInfos>
+                    <AlbumSpotlight storedAlbum={album}/>
+                    <SetPlaylistSpotlight playlistUrl={playlist}/>
+                </StyledSetQuickInfos>
             </div>
         </ThemeProvider>
     )
