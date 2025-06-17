@@ -1,43 +1,24 @@
-# Just Write: A Next.js Rich Text Editor
+# Blog Music Archive
 
-A ready-to-use Rich Text Editor built with [TipTap](https://tiptap.dev/).
+Projeto Fullstack do blog music archive
 
-![Rich Text Editor Preview](./public/editor-preview.png)
+## ✨ Stack
 
-## ✨ Features
+- Banco de dados: Prisma e PostgreSQL para autenticação | MongoDB para posts/demais conteúdos do blog
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TipTap](https://tiptap.dev/)
 
-This project offers a functional and customizable rich text editor with essential toolbar options:
-- H1
-- H2
-- H3
-- Bold
-- Italic
-- Strike
-- Align Left
-- Align Center
-- Align Right
-- Bullet List
-- Ordered List
-- Highlight
-- Add Image
-- Link
-
-## 🚀 Getting Started
-
-To run the project locally:
+## 🚀 Instalação
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000/dashboard](http://localhost:3000/dashboard) in your browser.
+Rodando em [http://localhost:3000/dashboard](http://localhost:3000/dashboard)
 
-## 🛠️ Tech Stack
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [TipTap](https://tiptap.dev/)
 
 
