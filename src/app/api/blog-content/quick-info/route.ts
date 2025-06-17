@@ -1,4 +1,4 @@
-import BlogQuickInfoDB from "../../../../../models/blogQuickInfosModel"
+import BlogQuickInfoDB from "../../../../../types/blogQuickInfosModel"
 import { NextRequest, NextResponse } from "next/server"
 import { connectMongoDB } from "../../../../../lib/db"
 

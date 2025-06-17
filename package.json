@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@prisma/client": "^6.9.0",
     "@tiptap/extension-highlight": "^2.11.7",
     "@tiptap/extension-image": "^2.11.7",
     "@tiptap/extension-link": "^2.11.7",
@@ -45,6 +46,7 @@
     "eslint-config-next": "15.3.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "prisma": "^6.9.0",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
     "typescript": "^5"

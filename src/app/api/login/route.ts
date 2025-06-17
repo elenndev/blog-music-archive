@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { connectMongoDB } from "../../../../lib/db"
-import UserDB from "../../../../models/userModel"
+import { prisma } from "../../../../lib/prisma"
 
 export async function GET(request: NextRequest){
     const { searchParams } = new URL(request.url)
@@ -11,8 +10,11 @@ export async function GET(request: NextRequest){
     }
     
     try{
-        await connectMongoDB()
-        const user = await UserDB.findOne({username: credential})
+        const user = await prisma.user.findFirst({
+            where: {
+                username: credential
+            },
+        })
         if(user){
             return NextResponse.json({user}, {status: 200})
         } else {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import BlogQuickInfoDB from "../../../../../../models/blogQuickInfosModel"
+import BlogQuickInfoDB from "../../../../../../types/blogQuickInfosModel"
 import { connectMongoDB } from "../../../../../../lib/db"
 
 export async function POST(request: NextRequest){
